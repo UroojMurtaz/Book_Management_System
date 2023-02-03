@@ -36,15 +36,30 @@ export default function BookHome() {
           hidden={!opened}
           width={{ sm: 200, lg: 250 }}
         >
-            <Navbar.Section><ImBook/>Book. Mart</Navbar.Section>
-            <Navbar.Section>All Books</Navbar.Section>
-           
+          <Navbar.Section
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "5px",
+              padding: "10px",
+              borderBottom: "1px solid gray",
+              justifyContent:'center',
+              fontWeight: "700",
+              fontSize:'22px'
+            }}
+          >
+            <ImBook />
+            Book. Mart
+          </Navbar.Section>
+          <Navbar.Section
+            style={{ padding: "10px", borderBottom: "1px solid gray" }}
+          >
+            All Books
+          </Navbar.Section>
         </Navbar>
       }
-      
       header={
-        <Header height={{ base: 50, md: 70 }} p="md" bg={"#1864AB"}
-        >
+        <Header height={{ base: 50, md: 70 }} p="md" bg={"#1864AB"}>
           <div
             style={{ display: "flex", alignItems: "center", height: "100%" }}
           >
@@ -57,12 +72,12 @@ export default function BookHome() {
                 mr="xl"
               />
             </MediaQuery>
-            
-              <ImBook size="3em" color="white"/>
-              
-             
-             <Text color="white" size="2.5rem">BOOK. MART</Text>
-            
+
+            <ImBook size="3em" color="white" />
+
+            <Text color="white" size="2.5rem">
+              BOOK. MART
+            </Text>
           </div>
         </Header>
       }

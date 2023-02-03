@@ -12,8 +12,9 @@ import { showNotification } from "@mantine/notifications";
 
 function Navbar() {
   const [data, setData] = useState([]);
-  const [opened, setOpened] = useState(false);
-  const [showModal, setShowModal] = useState(false);
+  const [opened, setOpened] = useState(false)
+  const [editData, setEditData] = useState();
+  
   const [fetch,setFetch]=useState()
   useEffect(() => {
     axios
@@ -41,6 +42,11 @@ function Navbar() {
         console.log(err);
       });
   }
+
+  const editBook = (item) => {
+    setOpened(true)
+    setEditData(item)
+  }
   const ths = (
     <tr>
       <th>Title</th>
@@ -55,11 +61,10 @@ function Navbar() {
       <td>{item.title}</td>
       <td>{item.author}</td>
       <td>{item.no_of_pages}</td>
-      {/* <td>{item.publishedDate}</td> */}
-      <td>{moment(item.publishedDate).format("DD/MM/YYYY")}</td>
+      <td>{moment(item.published_at).format("DD/MM/YYYY")}</td>
       <td>
         <MdDelete color="#C92A2A" fontSize="2em" onClick={()=>deleteBook(item._id)}/>
-        <RiEdit2Line color="#BAC8FF" fontSize="2em" />
+        <RiEdit2Line color="#BAC8FF" fontSize="2em" onClick={()=>editBook(item)}/>
       </td>
     </tr>
   ));
@@ -71,7 +76,7 @@ function Navbar() {
           gradient={{ from: "indigo", to: "cyan" }}
           leftIcon={<IoMdAddCircle fontSize="1.5em" />}
           style={{ marginLeft: "87%" }}
-        //   onClick={() => setOpened(true)}
+          onClick={() => setOpened(true)}
         >
           Add Book
         </Button>
@@ -81,7 +86,7 @@ function Navbar() {
         <thead>{ths}</thead>
         <tbody>{rows}</tbody>
       </Table>
-      <AddBook opened={showModal} setOpened={setShowModal}/>
+      <AddBook opened={opened} setOpened={setOpened} editData={editData} setEditData={setEditData} setFetch={setFetch}/>
     </div>
     
   );

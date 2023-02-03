@@ -2,11 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import './index.css';
-
+import { NotificationsProvider } from "@mantine/notifications";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+     <NotificationsProvider position="top-center" zIndex={2077} style={{marginTop:'60px'}}>
+     <App />
+     </NotificationsProvider>
+    
 
   </React.StrictMode>
 );

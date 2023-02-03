@@ -2,7 +2,7 @@ import { MantineProvider } from '@mantine/core';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import BookHome from './Components/BookHome';
-import Navbar from './Components/Navbar';
+import Main from './Components/Main';
 
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<BookHome />}>
-            <Route path="/" element={<Navbar />} />
+            <Route path="/" element={<Main />} />
           </Route>
         </Routes>
       </BrowserRouter>
