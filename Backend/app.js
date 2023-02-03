@@ -1,12 +1,13 @@
 const express=require ("express")
 const app=express()
+var cors = require('cors');
 
 app.use(express.json());
 app.use(
     express.urlencoded({ extended: false })
 );
     
-
+app.use(cors())
 
 //Route import
 const book=require('./routes/Bookroutes')

@@ -11,6 +11,7 @@ import {
   useMantineTheme,
 } from "@mantine/core";
 import { Outlet } from "react-router-dom";
+import { ImBook } from "react-icons/im";
 
 export default function BookHome() {
   const theme = useMantineTheme();
@@ -30,20 +31,20 @@ export default function BookHome() {
       navbar={
         <Navbar
           p="md"
+          bg={"#C1C2C5"}
           hiddenBreakpoint="sm"
           hidden={!opened}
-          width={{ sm: 200, lg: 300 }}
+          width={{ sm: 200, lg: 250 }}
         >
-          <Text>Application navbar</Text>
+            <Navbar.Section><ImBook/>Book. Mart</Navbar.Section>
+            <Navbar.Section>All Books</Navbar.Section>
+           
         </Navbar>
       }
-      footer={
-        <Footer height={60} p="md">
-          Application footer
-        </Footer>
-      }
+      
       header={
-        <Header height={{ base: 50, md: 70 }} p="md">
+        <Header height={{ base: 50, md: 70 }} p="md" bg={"#1864AB"}
+        >
           <div
             style={{ display: "flex", alignItems: "center", height: "100%" }}
           >
@@ -52,12 +53,16 @@ export default function BookHome() {
                 opened={opened}
                 onClick={() => setOpened((o) => !o)}
                 size="sm"
-                color={theme.colors.gray[6]}
+                color={theme.colors.blue[3]}
                 mr="xl"
               />
             </MediaQuery>
-
-            <Text>Application header</Text>
+            
+              <ImBook size="3em" color="white"/>
+              
+             
+             <Text color="white" size="2.5rem">BOOK. MART</Text>
+            
           </div>
         </Header>
       }
